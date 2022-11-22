@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<!-- Page content -->
+{% block navbar %}
+    {% include 'section/navbar_1.html' %}
+{% endblock navbar %}
+
+{% block content %}
+<section class="blogs section">
+    <div class="container">
+        <h1 class="section_title">[ BLOG ]</h1>
+
+        <div class="blogs_container grid">
+            <aside>
+                <h3>Topics</h3>
+                <div class="blog_t_wrapper">
+                    {% for topic in categories %}
+                    <a href="{% url 'blog_category' topic.name %}"><span class="blog_topic">{{ topic.name }}</span></a>
+                    {% endfor %}
+                </div>
+            </aside>
+            
+            {% include 'section/blog.html' %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

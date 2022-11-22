@@ -1,0 +1,15 @@
+<div class="project_wrapper grid">
+    {% for project in projects %}
+    <div class="project_card">
+        <div class="project_card_front">
+            <img src="{{ project.project_img.url }}" alt="">
+        </div>
+        <div class="project_card_back">
+            <div class="project_detail">
+                <h2 class="h2">{{ project.project_name }}</h2>
+                <a href="{% url 'project_detail' project.pk %}"><p class="text_tiny" >Click to View</p></a>                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

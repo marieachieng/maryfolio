@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+<!-- Page content -->
+{% block navbar %}
+{% include 'section/navbar_1.html' %}
+{% endblock navbar %}
+
+{% block content %}
+<section class="portfolio section">
+    <div class="container">
+        <h1 class="section_title">[ PORTFOLIO ]</h1>
+
+        {% include 'section/project.html' %}
+
+        <button class="btn btn-secondary" id="loadmore">Load more...</button>
+    </div>
+</section>
+{% endblock content %}

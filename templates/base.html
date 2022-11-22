@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mary Atieno</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body class="light">
+    <header class="header">
+        <nav class="nav">
+            <div class="nav_wrapper container" id="navbar">
+                {% block navbar %}{% endblock navbar %}
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        {% block content %} {% endblock content %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer_wrapper grid">
+                <div class="copyright">
+                    <p class="copyright_text">Copyright &copy; 2017 All Rights Reserved by 
+                        <a href="#">Mary Atieno</a>.
+                    </p>
+                </div>
+        
+                <div class="footer_social">
+                    <ul class="footer_social_links">
+                        <li>{% for li in linkedin %}<a class="social_link" href="{{ li.social_url }}" target="_blank"><i class="bx bxl-linkedin-square"></i></a>{% endfor %}</li>
+                        <li>{% for li in dribble %}<a class="social_link" href="{{ li.social_url }}" target="_blank"><i class='bx bxl-dribbble'></i></a>{% endfor %}</li>   
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="progress">
+        <span id="progress_value"><i class='bx bx-up-arrow-alt'></i></span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
+    
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/theme_mode.js' %}"></script>
+</body>
+</html>

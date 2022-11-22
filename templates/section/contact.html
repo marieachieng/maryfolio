@@ -1,0 +1,86 @@
+<section class="section" id="contact">
+    <div class="container">
+        <h2 class="section_title">Contact Me.</h2>
+
+        <div class="contact_wrapper grid">
+            <div class="contact_info">
+                {% for contact in bios %}
+                <div class="contact_card">
+                    <div>
+                        <i class="bx bxs-map contact_icon"></i>
+                        <h4 class="h4">My Location</h3>
+                    </div>
+
+                    <span class="text_tiny">{{ contact.location }}</span>
+                </div>
+
+                <div class="contact_card">
+                    <div>
+                        <i class="bx bxs-envelope contact_icon"></i>
+                        <h4 class="h4">Email Me</h4>
+                    </div>
+
+                    <span class="text_tiny">{{ contact.email }}</span>
+                </div>
+
+                <div class="contact_card">
+                    <div>
+                        <i class="bx bxs-mobile contact_icon"></i>
+                        <h4 class="h4">Give a Call</h4>
+                    </div>
+
+                    <span class="text_tiny">{{ contact.contact_no }}</span>
+                </div>
+                {% endfor %}
+
+                <div class="contact_social">
+                    <span class="contact_social_follow">Follow Me on</span>
+
+                    <div class="contact_social_links grid">
+                        {% for li in dribble %}
+                        <a href="{{ li.social_url }}" target="_blank" class="social_link">
+                            <i class='bx bxl-dribbble'></i>
+                        </a>
+                        {% endfor %}
+                        {% for li in linkedin %}
+                        <a href="{{ li.social_url }}" target="_blank" class="social_link">
+                            <i class="bx bxl-linkedin-square"></i>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact_form_wrapper">
+                <h3 class="h3">Drop a message...</h3>
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="contact_form-group grid">
+                        <div class="form_div">
+                            <label for="" class="form_tag">Name</label>
+                            <input type="text" class="form_input" name="full_name" placeholder="Insert your name">
+                        </div>
+
+                        <div class="form_div">
+                            <label for="" class="form_tag">Email</label>
+                            <input type="email" class="form_input" name="email" placeholder="Insert your email">
+                        </div>							
+                    </div>
+
+                    <div class="form_div">
+                        <label for="" class="form_tag">Subject</label>
+                        <input type="text" class="form_input" name="subject" placeholder="Insert your subject">
+                    </div>
+
+                    <div class="form_div form_area">
+                        <label for="" class="form_tag">Message</label>
+                        <textarea cols="20" rows="10" class="form_input" name="message" placeholder="Write your Message"></textarea>
+                    </div>		
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>            
+        </div>
+    </div>
+</section>

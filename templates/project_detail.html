@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<!-- Page content -->
+{% block navbar %}
+    {% include 'section/navbar_2.html' %}
+{% endblock navbar %}
+
+{% block content %}
+<section class="project section">
+    <div class="container">
+        <h1 class="section_title">[ {{ project.project_name }} ]</h1>
+
+        <div class="project_view grid">
+            <img src="{{ project.project_img.url }}" alt="">
+    
+            <div class="project_info">
+                <h2 class="h3">About the project</h2>
+                <p>{{ project.project_description }}</p>
+                <div class="project_links">
+                    <a href="{{ project.project_url }}"><i class='bx bx-show'></i></a>
+                    <a href="{{ project.project_git }}"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

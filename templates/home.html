@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<!-- Page content -->
+{% block navbar %}
+    {% include 'section/navbar_1.html' %}
+{% endblock navbar %}
+
+{% block content %}
+    {% include 'section/hero.html' %}
+    {% include 'section/about.html' %}
+    <hr>
+    {% include 'section/service.html' %}
+    <hr>
+    <section class="projects section" id="projects">
+        <div class="container">
+            <h2 class="section_title">Projects.</h2>
+            <div class="btn_flex">
+                <a href="{% url 'portfolio' %}" class="btn btn-secondary">View All</a>
+            </div>
+            {% include 'section/project.html' %}
+        </div>
+    </section>
+    <hr>
+    {% include 'section/contact.html' %}
+{% endblock content %}

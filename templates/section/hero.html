@@ -1,0 +1,11 @@
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero_content">
+            {% for bio in bios %}
+            <h1 class="hero_title"><span>Hello, </span>{{ bio.firstname }} {{ bio.surname }}</h1>
+            {% endfor %}
+            <h2 class="hero_subtitle"><span class="typing"></span></h2>
+        </div>
+        <a href="#about" class="scroll_btn"><span></span>Scroll</a>
+    </div>
+</section>

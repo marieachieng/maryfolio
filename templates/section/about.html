@@ -1,0 +1,78 @@
+{% load static %}
+<section class="about section" id="about">
+    <div class="container">
+        <h2 class="section_title">About Me.</h2>
+
+        {% for bio in bios %}
+        <div class="about_wrapper grid">
+            <div class="about_img">
+                <img src="{{ bio.profile_img.url }}" alt="Profile Photo">
+            </div>
+            <div class="about_content">
+                <ul class="about_tabs">
+                    <li>
+                        <h3 data-target="#myself" class="tab about_active h3">Myself</h3>
+                    </li>
+                    <li >
+                        <h3 data-target="#education" class="tab h3">Education</h3>
+                    </li>
+                    <li >
+                        <h3 data-target="#employement" class="tab h3">Employment</h3>
+                    </li>
+                    <li >
+                        <h3 data-target="#skills" class="tab h3">Skills</h3>
+                    </li>
+                </ul>
+                <hr>
+                <div class="tab_content">
+                    <div id="myself" data-content class="about_active">
+                        {{ bio.about_me }}
+                    </div>
+
+                    <div id="education" data-content>                    
+                        <div class="timeline">
+                            {% for study in studies %}
+                            <div class="timeline_item">
+                                <div class="circle_dot"></div>
+                                <span class="timeline_date">
+                                    <i class="bx bx-calendar text_sm"></i> {{ study.started_at }} - {{ study.ended_at }}
+                                </span>
+                                <h4 class="timeline_title h4">{{ study.course_name }} - <a href="{{ study.institute_url }}" target="_blank" rel="noopener noreferrer">{{ study.institute_name }}</a></h4>
+                                <p class="timeline_text">{{ study.description }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div id="employement" data-content>                    
+                        <div class="timeline">
+                            {% for job in jobs %}
+                            <div class="timeline_item">
+                                <div class="circle_dot"></div>
+                                <span class="timeline_date">
+                                    <i class="bx bx-calendar text_sm"></i> {{ job.started_at }} - {{ job.ended_at }}
+                                </span>
+                                <h4 class="timeline_title h4">{{ job.role }} - {{ job.companyname }}</h4>
+                                <p class="timeline_text">{{ job.roledescription }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div id="skills" data-content>
+                        <div class="skill_wrapper">
+                            {% for skill in skills %}
+                            <div>
+                                <img src="{{ skill.skill_img.url }}" alt="{{ skill.skill_name }}">
+                                <span>{{ skill.skill_name }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <a href="{% static 'img/mary_cv.pdf' %}" download><button class="btn btn-secondary">Download CV</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>

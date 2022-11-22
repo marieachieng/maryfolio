@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+<!-- Page content -->
+{% block navbar %}
+    {% include 'section/navbar_2.html' %}
+{% endblock navbar %}
+
+{% block content %}
+<section class="blogs section">
+    <div class="container">
+        <h1 class="section_title">{{ category | title }}</h1>
+        {% include 'section/blog.html' %}
+    </div>
+</section>
+{% endblock content %}
